@@ -1,7 +1,7 @@
 const { Sheet } = require('./sheet');
 const fetch = require('node-fetch');
 
-const jobSiteUrl = 'https://jobs.github.com/positions.json?description=python&location=new+york';
+const jobSiteUrl = 'https://jobs.github.com/positions.json?description=ruby&page=1';
 const googleSheetId = '1CukE2LF0bZF8LAOPdh7kWGnIEYMbqEA88a1bvwYzI9M';
 
 (async function () {                         //Immediately Invoked Function Expression (IIFE)
@@ -15,6 +15,7 @@ const googleSheetId = '1CukE2LF0bZF8LAOPdh7kWGnIEYMbqEA88a1bvwYzI9M';
             company: job.company,
             title: job.title,
             location: job.location,
+            type: job.type,
             date: job.created_at,
             url: job.url
         }
