@@ -1,8 +1,8 @@
 const { GoogleSpreadsheet } = require('google-spreadsheet');
 
 class Sheet {
-    constructor() {
-        this.doc = new GoogleSpreadsheet('1CukE2LF0bZF8LAOPdh7kWGnIEYMbqEA88a1bvwYzI9M');
+    constructor(args) {
+        this.doc = new GoogleSpreadsheet(args);
     }
 
     async load() {
@@ -17,12 +17,14 @@ class Sheet {
 }
 
 
+module.exports = { Sheet };
+
 //  test
-(async function () {
-    const sheet = new Sheet();
-    await sheet.load();
-    await sheet.addRows([
-        { title: 'Front End Developer', location: 'SYD' },
-        { title: 'UX/UI designer', location: 'MEL' }
-    ]);
-})();
+// (async function () {
+//     const sheet = new Sheet('1CukE2LF0bZF8LAOPdh7kWGnIEYMbqEA88a1bvwYzI9M');
+//     await sheet.load();
+//     await sheet.addRows([
+//         { title: 'Front End Developer', location: 'SYD' },
+//         { title: 'UX/UI designer', location: 'MEL' }
+//     ]);
+// })();
